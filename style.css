@@ -247,6 +247,41 @@ button:disabled {
     line-height: 1.5;
 }
 
+/* 结果区域样式调整 */
+.result-section.markdown-body {
+    background-color: var(--secondary-color);
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px var(--shadow-color);
+}
+
+.result-section.markdown-body h3 {
+    color: var(--text-color);
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--primary-color);
+}
+
+.result-section.markdown-body pre {
+    background-color: #f6f8fa;
+    padding: 1rem;
+    border-radius: 8px;
+    overflow-x: auto;
+    font-family: 'Consolas', monospace;
+    line-height: 1.5;
+}
+
+.result-section.markdown-body p {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+.result-section.markdown-body ul, 
+.result-section.markdown-body ol {
+    padding-left: 2rem;
+    margin-bottom: 1rem;
+}
+
 /* 响应式调整 */
 @media (max-width: 768px) {
     .container {

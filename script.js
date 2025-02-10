@@ -89,11 +89,11 @@ function createStreamHandler(elementId) {
             try {
                 if (chunk.choices[0].delta?.content) {
                     contentBuffer += chunk.choices[0].delta.content;
-                    element.innerHTML = `<pre>${contentBuffer}</pre>`;
+                    element.innerHTML = marked.parse(contentBuffer);
                 }
                 if (chunk.choices[0].delta?.reasoning_content) {
                     reasoningBuffer += chunk.choices[0].delta.reasoning_content;
-                    element.innerHTML = `<pre>推理过程：\n${reasoningBuffer}\n\n最终答案：\n${contentBuffer}</pre>`;
+                    element.innerHTML = marked.parse(`### 推理过程：\n${reasoningBuffer}\n\n### 最终答案：\n${contentBuffer}`);
                 }
             } catch (error) {
                 console.error('处理数据块时出错:', error);
