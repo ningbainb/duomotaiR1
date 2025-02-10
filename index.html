@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>多模态R1项目</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1><i class="fas fa-brain"></i> 多模态R1项目</h1>
+        
+        <div class="api-keys">
+            <div class="input-group">
+                <label for="modelA-select">模型A选择：</label>
+                <select id="modelA-select">
+                    <option value="Qwen/Qwen2-VL-72B-Instruct">Qwen2-VL-72B-Instruct</option>
+                    <option value="Pro/Qwen/Qwen2-VL-7B-Instruct">Qwen2-VL-7B-Instruct</option>
+                    <option value="OpenGVLab/InternVL2-Llama3-76B">InternVL2-Llama3-76B</option>
+                    <option value="OpenGVLab/InternVL2-26B">InternVL2-26B</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label for="modelB-select">模型B选择：</label>
+                <select id="modelB-select">
+                    <option value="deepseek-ai/DeepSeek-R1">DeepSeek-R1</option>
+                    <option value="deepseek-ai/DeepSeek-R1-Distill-Llama-70B">DeepSeek-R1-Llama-70B</option>
+                    <option value="deepseek-ai/DeepSeek-R1-Distill-Qwen-32B">DeepSeek-R1-Qwen-32B</option>
+                    <option value="deepseek-ai/DeepSeek-R1-Distill-Qwen-14B">DeepSeek-R1-Qwen-14B</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label for="modelA-key">模型A API密钥：</label>
+                <input type="text" id="modelA-key" placeholder="请输入模型A的API密钥">
+            </div>
+            <div class="input-group">
+                <label for="modelB-key">模型B API密钥：</label>
+                <input type="text" id="modelB-key" placeholder="请输入模型B的API密钥">
+            </div>
+            <div class="input-group actions">
+                <button id="clear-history" class="secondary-btn">
+                    <i class="fas fa-trash-alt"></i> 清除历史记录
+                </button>
+            </div>
+        </div>
+
+        <div class="upload-section">
+            <label for="image-upload"><i class="fas fa-cloud-upload-alt"></i> 上传图片：</label>
+            <input type="file" id="image-upload" accept="image/jpeg,image/png,image/jpg" hidden>
+            <div id="preview" class="preview-container">
+                <div class="upload-placeholder">
+                    <i class="fas fa-image fa-3x"></i>
+                    <p><i class="fas fa-plus-circle"></i> 点击或拖放图片到此处</p>
+                    <small>支持jpg、png格式，大小不超过10MB</small>
+                </div>
+            </div>
+        </div>
+
+        <div class="prompt-section">
+            <label for="user-prompt">额外提示（可选）：</label>
+            <textarea id="user-prompt" placeholder="请输入您的问题或提示..."></textarea>
+        </div>
+
+        <button id="analyze-btn">
+            <i class="fas fa-magic"></i> 开始分析
+        </button>
+
+        <div class="results">
+            <div class="result-section">
+                <h3>模型A分析结果：</h3>
+                <div id="modelA-result"></div>
+            </div>
+            <div class="result-section">
+                <h3>模型B解答：</h3>
+                <div id="modelB-result"></div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
